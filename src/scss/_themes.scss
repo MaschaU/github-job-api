@@ -1,0 +1,7 @@
+html[data-theme="default"] {
+  --background: $lightGrey;
+}
+
+html [data-theme="dark"] {
+  --background: $darkGrey;
+}
