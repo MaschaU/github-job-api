@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useContext } from "react";
-import { JobsContext } from "./App";
+import  { JobsContext } from "./JobsContext";
 
 const Header = () => {
 
@@ -41,7 +41,7 @@ const Header = () => {
         <img src="../visuals/desktop/icon-sun.svg" alt="sun" />
       </span>
       <button className={`header__toggle_button ${!defaultTheme? "active": ""}`} aria-label="Toggle between themes"
-      onClick={()=>switchTheme}>
+      onClick={()=>switchTheme()}>
         <span className="header__slider" />
       </button>
       <span>

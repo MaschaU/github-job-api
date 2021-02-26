@@ -1,5 +1,6 @@
 // imports of all the partials
 // import variables first so the other files can use them
-@import "variables-light";
-@import "globals";
-@import "header";
+@import "./_variables-light";
+@import "./themes";
+@import "./globals";
+@import "./header";

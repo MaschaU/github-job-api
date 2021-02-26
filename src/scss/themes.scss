@@ -1,0 +1,8 @@
+html {
+  @debug "$lightGrey: #{$lightGrey}";
+  --background: lime;
+}
+
+html[data-theme="dark"] {
+  --background: tomato;
+}
