@@ -1,7 +1,7 @@
 import Header from "./Header";
 import React, { useState, useEffect, createContext } from "react";
 
-export const JobsContext = createContext();
+
 
 function App() {
   const [defaultTheme, setDefaultTheme] = useState(localStorage.getItem("themes") === "default" ? true : false);
