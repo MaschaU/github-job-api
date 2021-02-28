@@ -26,19 +26,20 @@
         border: 0;
         border-radius: 10px;
       
-        .slider {
-          position: absolute;
-          height: 14px; 
-          width: 14px;
-          top: 3px; 
-          left: 4px;
-          border: 0;
-          border-radius: 50%;
-          background-color: $primary;
-          transition: .2s;
-        }
       }
     }
   
+  }
+
+  &__slider {
+    position: absolute;
+    height: 14px; 
+    width: 14px;
+    top: 3px; 
+    left: 4px;
+    border: 0;
+    border-radius: 50%;
+    background-color: var(--background);
+    transition: .2s;
   }
 }
