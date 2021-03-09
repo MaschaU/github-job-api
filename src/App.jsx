@@ -16,7 +16,7 @@ function App() {
 
 
   const githubApi = async (url) => {
-    console.info('fetching jobs')
+    console.info("fetching jobs")
     setLoading(true);
     let returnedResults = await fetch(url);
 
