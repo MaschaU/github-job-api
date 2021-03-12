@@ -1,8 +1,12 @@
 import React, { useContext } from "react";
 import { JobsContext } from "./JobsContext";
-import { Link } from 'react-router-dom'
-import * as moment from 'moment' 
-import TimeStamp from "./TimeStamp";
+import { Link } from 'react-router-dom';
+import * as moment from 'moment';
+import LinesEllipsis from 'react-lines-ellipsis';
+import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
+
+const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
+
 
 // bloody moment still not working.
 // OOPSIE WOOPSIE!! Uwu we made a fucky wucky!!!
@@ -33,27 +37,37 @@ const JobPostings = ({ match }) => {
     // return functional.test(url)
   }
 
-
-
-
   return (
 
     jobs.map((job) => (
       <div>
         <div key={job.id} >
-          <div>{console.log(job)}</div>
           <Link to={`/job/${job.id}`}>{job.title}</Link>
-
           <div className="jobs__container">
             <div className="jobs__container__header">
               <div className="header__image__container">
-                {job.company_logo && (<img src={job.company_logo} alt={`${job.company} company logo`} />)}
+              <div className="thumbnail__image__container">
+                    { job.company_logo && (<img src={job.company_logo} alt={`${job.company} company logo`} />) }
+                    { !job.company_logo && ( <div className="no-logo" >n / a</div> )}
+                </div>
+                
               </div>
               <div className="header__text">
                 <div className="textbox__inner">
                   <h1 className="header__text__heading">{job.company}</h1>
-                  <p>{moment().to(job.created_at)}</p>
-                  <p className="header__text__site">{shortenedUrl(job.company_url)}</p>
+                  <span>{moment().to(job.created_at)}</span>
+                  <p>{shortenedUrl(job.company_url)}</p>
+                  <ResponsiveEllipsis
+                    className="thumbnail__title"
+                    text={job.title}
+                    component="h2" 
+                    maxLine={2}
+                />
+                <ResponsiveEllipsis
+                    className="thumbnail__location"
+                    text={job.location}
+                    component="small"
+                />
                 </div>
                 <div className="header__text__company-redirect" >
     
