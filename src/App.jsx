@@ -1,14 +1,9 @@
 import Header from "./Header";
 import React, { useState, useEffect, createContext } from "react";
-<<<<<<< HEAD
-
-
-=======
 import { JobsContext } from "./JobsContext";
 import  JobPostings  from "./JobPostings";
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import JobPostingDetails from "./JobPostingDetails";
->>>>>>> 48635109bbe4a1a24641d6c7872b2f0629f1cc6d
 
 function App() {
 
