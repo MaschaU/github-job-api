@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { JobsContext } from "./JobsContext";
 import { Link } from 'react-router-dom'
-import { moment } from 'moment'; 
+import * as moment from 'moment' 
 import TimeStamp from "./TimeStamp";
 
 // bloody moment still not working.
@@ -34,11 +34,14 @@ const JobPostings = ({ match }) => {
   }
 
 
+
+
   return (
 
     jobs.map((job) => (
       <div>
         <div key={job.id} >
+          <div>{console.log(job)}</div>
           <Link to={`/job/${job.id}`}>{job.title}</Link>
 
           <div className="jobs__container">
@@ -49,16 +52,17 @@ const JobPostings = ({ match }) => {
               <div className="header__text">
                 <div className="textbox__inner">
                   <h1 className="header__text__heading">{job.company}</h1>
-                  <p>{moment (job.created_at) }</p>
+                  <p>{moment().to(job.created_at)}</p>
                   <p className="header__text__site">{shortenedUrl(job.company_url)}</p>
                 </div>
                 <div className="header__text__company-redirect" >
-                  {job.company_url}
+    
 
                   <div className={`header__text__company-redirect ${!probablyFunctionalSite(job.company_url) ? "invalid" : ""}`}>
                     <a className="button" target="_blank" rel="noopener noreferrer" href={job.company_url}>
                       Company site
-                              </a>
+                    </a>
+      
 
                   </div>
                 </div>
