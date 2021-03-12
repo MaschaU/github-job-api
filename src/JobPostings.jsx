@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { JobsContext } from "./JobsContext";
 import { Link } from 'react-router-dom';
 import * as moment from 'moment';
@@ -8,12 +8,17 @@ import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
 const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
 
+
+
 // bloody moment still not working.
 // OOPSIE WOOPSIE!! Uwu we made a fucky wucky!!!
 // A wittle fucko boingo! The code monkeys at our
 // HQ are working vewy hard to fix this.
 
 const JobPostings = ({ match }) => {
+  const colors = ["#df6dae", "#3db3d1", "#3D3B94", "#F0B62A", "#E66D39", "#222121", "#5964E0", "#FB7E66", 
+                  "#007CFF", "#492A29", "#60DCAD", "#FF585F"];
+  const [color] = useState(colors[Math.floor(Math.random() * colors.length)]);
   const { data: { jobs } } = useContext(JobsContext);
   const shortenedUrl = (url) => {
     if (url === null || url.length === 0 || url === "http:" || url === "https:") {
@@ -48,7 +53,7 @@ const JobPostings = ({ match }) => {
               <div className="header__image__container">
               <div className="thumbnail__image__container">
                     { job.company_logo && (<img src={job.company_logo} alt={`${job.company} company logo`} />) }
-                    { !job.company_logo && ( <div className="no-logo" >n / a</div> )}
+                    { !job.company_logo && ( <div className="no-logo" style={{backgroundColor: color}}></div> )}
                 </div>
                 
               </div>
