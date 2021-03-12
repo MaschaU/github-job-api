@@ -1,0 +1,40 @@
+
+.thumbnail__image__container, .no-logo {
+  height: 300px;
+  width:300px;
+}
+
+
+.invalid { 
+  display: none 
+};
+
+.jobs__container {
+    margin: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    
+
+    &__header {
+        display: flex;
+        min-height: 120px;
+        padding: 15px 0;
+        border-radius: 5px;
+        transform: translateY(-30px);
+        overflow: hidden;
+
+        .header {
+            &__image__container {
+                display: flex;
+                align-items: center;
+                width: 150px;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            
+        }
+    }
+}

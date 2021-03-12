@@ -1,5 +1,5 @@
 import Header from "./Header";
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, useEffect } from "react";
 import { JobsContext } from "./JobsContext";
 import  JobPostings  from "./JobPostings";
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
@@ -16,7 +16,7 @@ function App() {
 
 
   const githubApi = async (url) => {
-    console.info('fetching jobs')
+    console.info("fetching jobs")
     setLoading(true);
     let returnedResults = await fetch(url);
 
