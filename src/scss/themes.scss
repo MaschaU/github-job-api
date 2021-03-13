@@ -1,6 +1,5 @@
 html {
-  @debug "$lightGrey: #{$lightGrey}";
-  --background: lime;
+  --background: #{$cardBackgroundColor};
 }
 
 html[data-theme="dark"] {
