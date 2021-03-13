@@ -5,6 +5,7 @@ import * as moment from "moment";
 import LinesEllipsis from "react-lines-ellipsis";
 import responsiveHOC from "react-lines-ellipsis/lib/responsiveHOC";
 import "./JobPostings.scss";
+import PropTypes from "prop-types";
 
 const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
@@ -107,6 +108,17 @@ export const JobPosting = ({
     </div>
   </div>
 );
+
+JobPosting.propTypes = {
+  id: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  company_logo: PropTypes.string.isRequired,
+  company: PropTypes.string.isRequired,
+  created_at: PropTypes.string.isRequired,
+  company_url: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+}
 
 const JobPostings = ({ match }) => {
   const color = colors[Math.floor(Math.random() * colors.length)];
