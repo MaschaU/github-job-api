@@ -1,11 +1,14 @@
 import React from "react";
-import { useEffect, useContext } from "react";
-import  { JobsContext } from "./JobsContext";
+import { useEffect } from "react";
+import  { useJobsContext } from "../JobsContext";
+import { bgPatternHeader, iconMoon, iconSun, logo } from "../visuals/desktop";
+
+import "./Header.scss";
 
 const Header = () => {
 
   const htmlTag = document.body.parentElement;
-  const {defaultTheme, setDefaultTheme} = useContext(JobsContext);
+  const {defaultTheme, setDefaultTheme} = useJobsContext();
 
   useEffect (() => {
     if (!localStorage.getItem("themes")) {
@@ -32,20 +35,20 @@ const Header = () => {
   return(
     <div className="header__desktop">
     <div className="header__backgrounds">
-        <img className="header__banner" src="../visuals/desktop/bg-pattern-header.svg" alt="" />
+        <img className="header__banner" src={bgPatternHeader} alt="" />
     </div>
     <div className="header__inner">
-      <img className="header__logo" src="../visuals/desktop/logo.svg" alt="company logo" />
+      <img className="header__logo" src={logo} alt="company logo" />
     <div className="header__toggle">
       <span>
-        <img src="../visuals/desktop/icon-sun.svg" alt="sun" />
+        <img src={iconSun} alt="sun" />
       </span>
       <button className={`header__toggle_button ${!defaultTheme? "active": ""}`} aria-label="Toggle between themes"
       onClick={()=>switchTheme()}>
         <span className="header__slider" />
       </button>
       <span>
-        <img src="../visuals/desktop/icon-moon.svg" alt="moon" />
+        <img src={iconMoon} alt="moon" />
       </span>
     </div>
   </div>

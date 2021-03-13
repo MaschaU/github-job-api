@@ -1,7 +1,7 @@
-import Header from "./Header";
+import Header from "./Header/Header";
 import React, { useState, useEffect } from "react";
 import { JobsContext } from "./JobsContext";
-import  JobPostings  from "./JobPostings";
+import  JobPostings  from "./JobPostings/JobPostings";
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import JobPostingDetails from "./JobPostingDetails";
 
