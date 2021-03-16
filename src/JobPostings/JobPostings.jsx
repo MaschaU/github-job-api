@@ -24,28 +24,28 @@ const colors = [
   "#FF585F",
 ];
 
-const shortenedUrl = (url) => {
-  // if (url === null || url.length === 0 || url === "http:" || url === "https:") {
-  if (!url || url === "http:" || url === "https:") {
-    return "";
-  }
+// const shortenedUrl = (url) => {
+//   // if (url === null || url.length === 0 || url === "http:" || url === "https:") {
+//   if (!url || url === "http:" || url === "https:") {
+//     return "";
+//   }
 
-  const { hostname } = new URL(url);
-  if (hostname.startsWith("www.")) {
-    return hostname.substring(4);
-  }
-  return hostname;
-  // a no-go
-  // return url = url && url.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "").split('/')[0];
-};
+//   const { hostname } = new URL(url);
+//   if (hostname.startsWith("www.")) {
+//     return hostname.substring(4);
+//   }
+//   return hostname;
+//   // a no-go
+//   // return url = url && url.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "").split('/')[0];
+// };
 
-const probablyFunctionalSite = (url) => {
-  if (!url) return false;
-  return url.startsWith("http") || url.startsWith("www");
-  // 1/10 would not recommend. readability issues
-  // let functional = new RegExp(/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi);
-  // return functional.test(url)
-};
+// const probablyFunctionalSite = (url) => {
+// if (!url) return false;
+// return url.startsWith("http") || url.startsWith("www");
+// 1/10 would not recommend. readability issues
+// let functional = new RegExp(/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi);
+// return functional.test(url)
+// };
 
 export const JobPosting = ({
   id,
@@ -54,15 +54,15 @@ export const JobPosting = ({
   company_logo,
   company,
   created_at,
-  company_url,
   location,
 }) => (
-  <div>
-    <Link to={`/job/${id}`}>{title}</Link>
-    <div className="jobs__container">
-      <div className="jobs__container__header">
-        <div className="header__image__container">
-          <div className="thumbnail__image__container">
+  
+  <div className="cards__container">
+    <Link to={`/job/${id}`}>
+      {title}
+      <div className="card" >
+        <div className="card__header">
+          <div className="logo">
             {company_logo ? (
               <img src={company_logo} alt={`${company} company logo`} />
             ) : (
@@ -71,42 +71,28 @@ export const JobPosting = ({
           </div>
         </div>
         <div className="header__text">
-          <div className="textbox__inner">
-            <h1 className="header__text__heading">{company}</h1>
-            <span>{moment(created_at).fromNow()}</span>
-            <p>{shortenedUrl(company_url)}</p>
-            <ResponsiveEllipsis
-              className="thumbnail__title"
-              text={title}
-              component="h2"
-              maxLine={2}
-            />
-            <ResponsiveEllipsis
-              className="thumbnail__location"
-              text={location}
-              component="small"
-            />
-          </div>
-          <div className="header__text__company-redirect">
-            <div
-              className={`header__text__company-redirect ${
-                !probablyFunctionalSite(company_url) ? "invalid" : ""
-              }`}
-            >
-              <a
-                className="button"
-                target="_blank"
-                rel="noopener noreferrer"
-                href={company_url}
-              >
-                Company site
-              </a>
-            </div>
-          </div>
+          <span>{moment(created_at).fromNow()}</span>
+        </div>
+        <div className="cards__body">
+          <ResponsiveEllipsis
+            className="thumbnail__title"
+            text={title}
+            component="h2"
+            maxLine={2}
+          />
+          <small>{company}</small>
+        </div>
+        <div className="cards__footer">
+          <ResponsiveEllipsis
+            className="thumbnail__location"
+            text={location}
+            component="small"
+          />
         </div>
       </div>
-    </div>
+    </Link>
   </div>
+
 );
 
 JobPosting.propTypes = {
@@ -116,9 +102,8 @@ JobPosting.propTypes = {
   company_logo: PropTypes.string.isRequired,
   company: PropTypes.string.isRequired,
   created_at: PropTypes.string.isRequired,
-  company_url: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
-}
+};
 
 const JobPostings = ({ match }) => {
   const color = colors[Math.floor(Math.random() * colors.length)];

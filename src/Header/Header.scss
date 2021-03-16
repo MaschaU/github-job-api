@@ -1,4 +1,4 @@
-@import "../scss/variables-light";
+@import "../scss/variables";
 
 .header {
   &__desktop, &__banner {
@@ -40,7 +40,7 @@
     left: 4px;
     border: 0;
     border-radius: 50%;
-    background-color: $primary;
+    background-color: $primaryLight;
     transition: .2s;
   }
 

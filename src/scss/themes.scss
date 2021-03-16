@@ -1,7 +1,13 @@
-html {
-  --background: #{$cardBackgroundColor};
+html[data-theme="light"] {
+  --background: #{$midnight};
+  --blabla: #{$midnight};
+
+  
+  
+  
 }
 
 html[data-theme="dark"] {
-  --background: tomato;
+  
+  
 }

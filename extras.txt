@@ -1,0 +1,51 @@
+ <div>
+    <Link to={`/job/${id}`}>{title}</Link>
+    <div className="jobs__container">
+      <div className="jobs__container__header">
+        <div className="header__image__container">
+          <div className="thumbnail__image__container">
+            {company_logo ? (
+              <img src={company_logo} alt={`${company} company logo`} />
+            ) : (
+              <div className="no-logo" style={{ backgroundColor: color }}></div>
+            )}
+          </div>
+        </div>
+        <div className="header__text">
+          <div className="textbox__inner">
+            <h1 className="header__text__heading">{company}</h1>
+            <span>{moment(created_at).fromNow()}</span>
+            <p>{shortenedUrl(company_url)}</p>
+            <ResponsiveEllipsis
+              className="thumbnail__title"
+              text={title}
+              component="h2"
+              maxLine={2}
+            />
+            <ResponsiveEllipsis
+              className="thumbnail__location"
+              text={location}
+              component="small"
+            />
+          </div>
+          <div className="header__text__company-redirect">
+            <div
+              className={`header__text__company-redirect ${
+                !probablyFunctionalSite(company_url) ? "invalid" : ""
+              }`}
+            >
+              <a
+                className="button"
+                target="_blank"
+                rel="noopener noreferrer"
+                href={company_url}
+              >
+                Company site
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
