@@ -55,6 +55,7 @@ export const JobPosting = ({
   company,
   created_at,
   location,
+  type
 }) => (
   <Link className="link" to={`/job/${id}`}>
     <div className="card">
@@ -73,6 +74,7 @@ export const JobPosting = ({
       </div>
       <div className="header__text">
         <span>{moment(created_at).fromNow()}</span>
+        <span>{type}</span>
       </div>
       <div className="cards__body">
         <ResponsiveEllipsis
@@ -123,9 +125,9 @@ const JobPostings = ({ match }) => {
           created_at={job.created_at}
           company_url={job.company_url}
           location={job.location}
+          type={job.type}
         />
       ))}
-      ;
     </div>
   );
 };
