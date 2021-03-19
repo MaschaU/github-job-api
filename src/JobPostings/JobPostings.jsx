@@ -61,7 +61,11 @@ export const JobPosting = ({
       <div className="card__header">
         <div className="logo">
           {company_logo ? (
-            <img src={company_logo} alt={`${company} company logo`} />
+            <img
+              src={company_logo}
+              alt={`${company} company logo`}
+              style={{ backgroundColor: color }}
+            />
           ) : (
             <div className="no-logo" style={{ backgroundColor: color }}></div>
           )}

@@ -1,6 +1,8 @@
 html[data-theme="default-theme"] {
   --background: #{$lightGrey};
   --backgroundCards: #{$white};
+  --thinText: #{$darkGrey};
+  --boldText: #{$veryDarkBlue};
   
 
   
@@ -11,5 +13,7 @@ html[data-theme="default-theme"] {
 html[data-theme="dark"] {
   --background: #{$midnight};
   --backgroundCards: #{$veryDarkBlue};
+  --thinText: #{$darkGrey};
+  --boldText: #{$white};
   
 }

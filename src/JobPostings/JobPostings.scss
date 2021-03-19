@@ -1,7 +1,7 @@
 @import "../scss/variables";
 .link {
   text-decoration: none;
-	margin: 29px;
+  margin: 29px;
 }
 
 .cards-container {
@@ -23,7 +23,6 @@
   border-radius: 6px;
   background-color: var(--backgroundCards);
 
-
   &__header {
     img {
       width: 50px;
@@ -32,16 +31,22 @@
       margin-left: 33px;
       border-radius: 15px;
     }
-
-    &__text {
-      span {
-        width: 51px;
-        height: 16px;
-        font-weight: 400;
-        font-style: normal;
-        font-size: 16px;
-        line-height: 16.09px;
-      }
-    }
   }
+}
+span {
+  width: 51px;
+  height: 16px;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 16.09px;
+  color: var(--thinText);
+}
+
+small {
+	color: var(--thinText);
+}
+
+.thumbnail__title {
+	color: var(--boldText);
 }
