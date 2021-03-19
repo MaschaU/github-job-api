@@ -56,41 +56,38 @@ export const JobPosting = ({
   created_at,
   location,
 }) => (
-  <div className="cards__container">
-    <Link to={`/job/${id}`}>
-      {title}
-      <div className="card">
-        <div className="card__header">
-          <div className="logo">
-            {company_logo ? (
-              <img src={company_logo} alt={`${company} company logo`} />
-            ) : (
-              <div className="no-logo" style={{ backgroundColor: color }}></div>
-            )}
-          </div>
-        </div>
-        <div className="header__text">
-          <span>{moment(created_at).fromNow()}</span>
-        </div>
-        <div className="cards__body">
-          <ResponsiveEllipsis
-            className="thumbnail__title"
-            text={title}
-            component="h2"
-            maxLine={2}
-          />
-          <small>{company}</small>
-        </div>
-        <div className="cards__footer">
-          <ResponsiveEllipsis
-            className="thumbnail__location"
-            text={location}
-            component="small"
-          />
+  <Link className="link" to={`/job/${id}`}>
+    <div className="card">
+      <div className="card__header">
+        <div className="logo">
+          {company_logo ? (
+            <img src={company_logo} alt={`${company} company logo`} />
+          ) : (
+            <div className="no-logo" style={{ backgroundColor: color }}></div>
+          )}
         </div>
       </div>
-    </Link>
-  </div>
+      <div className="header__text">
+        <span>{moment(created_at).fromNow()}</span>
+      </div>
+      <div className="cards__body">
+        <ResponsiveEllipsis
+          className="thumbnail__title"
+          text={title}
+          component="h2"
+          maxLine={2}
+        />
+        <small>{company}</small>
+      </div>
+      <div className="cards__footer">
+        <ResponsiveEllipsis
+          className="thumbnail__location"
+          text={location}
+          component="small"
+        />
+      </div>
+    </div>
+  </Link>
 );
 
 JobPosting.propTypes = {
