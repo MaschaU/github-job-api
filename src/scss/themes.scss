@@ -1,6 +1,6 @@
 html[data-theme="light"] {
-  --background: #{$midnight};
-  --blabla: #{$midnight};
+  --backgroundCards: #{$lightGrey};
+  
 
   
   
@@ -8,6 +8,6 @@ html[data-theme="light"] {
 }
 
 html[data-theme="dark"] {
-  
+  --backgroundCards: #{$midnight};
   
 }

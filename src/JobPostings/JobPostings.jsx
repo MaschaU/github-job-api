@@ -56,11 +56,10 @@ export const JobPosting = ({
   created_at,
   location,
 }) => (
-  
   <div className="cards__container">
     <Link to={`/job/${id}`}>
       {title}
-      <div className="card" >
+      <div className="card">
         <div className="card__header">
           <div className="logo">
             {company_logo ? (
@@ -92,7 +91,6 @@ export const JobPosting = ({
       </div>
     </Link>
   </div>
-
 );
 
 JobPosting.propTypes = {
@@ -111,19 +109,24 @@ const JobPostings = ({ match }) => {
     data: { jobs },
   } = useJobsContext();
 
-  return jobs.map((job) => (
-    <JobPosting
-      key={job.id}
-      color={color}
-      id={job.id}
-      title={job.title}
-      company_logo={job.company_logo}
-      company={job.company}
-      created_at={job.created_at}
-      company_url={job.company_url}
-      location={job.location}
-    />
-  ));
+  return (
+    <div className="cards-container">
+      {jobs.map((job) => (
+        <JobPosting
+          key={job.id}
+          color={color}
+          id={job.id}
+          title={job.title}
+          company_logo={job.company_logo}
+          company={job.company}
+          created_at={job.created_at}
+          company_url={job.company_url}
+          location={job.location}
+        />
+      ))}
+      ;
+    </div>
+  );
 };
 
 export default JobPostings;
