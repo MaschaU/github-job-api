@@ -1,8 +1,4 @@
 @import "../scss/variables";
-.link {
-  text-decoration: none;
-  margin: 29px;
-}
 
 .cards-container {
   background-color: var(--background);
@@ -22,6 +18,8 @@
   left: 166px;
   border-radius: 6px;
   background-color: var(--backgroundCards);
+  margin: 20px;
+  text-decoration: none;
 
   &__header {
     img {
@@ -32,22 +30,33 @@
       border-radius: 15px;
     }
   }
-}
 
-span {
-  width: 51px;
-  height: 16px;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 16px;
-  line-height: 16.09px;
-  color: var(--thinText);
-}
+  &__span {
+    width: 51px;
+    height: 16px;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 16.09px;
+    margin: 10px;
+    color: var(--thinText);
+  }
 
-small {
-	color: var(--thinText);
-}
+  &__body {
+    .thumbnail__title {
+      color: var(--boldText);
+      margin: 10px;
+    }
+    small {
+      color: var(--thinText);
+      margin: 10px;
+    }
+  }
 
-.thumbnail__title {
-	color: var(--boldText);
+  &__footer {
+    .thumbnail__location {
+      color: var(--thinText);
+      margin: 10px;
+    }
+  }
 }
