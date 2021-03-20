@@ -6,6 +6,7 @@ import LinesEllipsis from "react-lines-ellipsis";
 import responsiveHOC from "react-lines-ellipsis/lib/responsiveHOC";
 import "./JobPostings.scss";
 import PropTypes from "prop-types";
+import SearchBar from "../SearchBar/SearchBar";
 
 const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
@@ -113,21 +114,24 @@ const JobPostings = ({ match }) => {
   } = useJobsContext();
 
   return (
-    <div className="cards-container">
-      {jobs.map((job) => (
-        <JobPosting
-          key={job.id}
-          color={color}
-          id={job.id}
-          title={job.title}
-          company_logo={job.company_logo}
-          company={job.company}
-          created_at={job.created_at}
-          company_url={job.company_url}
-          location={job.location}
-          type={job.type}
-        />
-      ))}
+    <div>
+      <SearchBar />
+      <div className="cards-container">
+        {jobs.map((job) => (
+          <JobPosting
+            key={job.id}
+            color={color}
+            id={job.id}
+            title={job.title}
+            company_logo={job.company_logo}
+            company={job.company}
+            created_at={job.created_at}
+            company_url={job.company_url}
+            location={job.location}
+            type={job.type}
+          />
+        ))}
+      </div>
     </div>
   );
 };
