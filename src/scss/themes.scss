@@ -3,6 +3,7 @@ html {
   --backgroundCards: #{$white};
   --thinText: #{$darkGrey};
   --boldText: #{$veryDarkBlue};
+  --buttonBackground: #{$primary};
   
 
   
@@ -15,5 +16,6 @@ html[data-theme="dark"] {
   --backgroundCards: #{$veryDarkBlue};
   --thinText: #{$darkGrey};
   --boldText: #{$white};
+  --buttonBackground: #{$primaryLight};
   
 }
