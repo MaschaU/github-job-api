@@ -1,15 +1,14 @@
 
 .search {
-  width: 62.5%;
+  width: 65%;
   height: 80px;
   border-radius: 6px;
-  margin: auto;
-  margin-left: 330px;
-  position: absolute;
-  top: 124px;
   display: flex;
-  flex-direction: row;
   background-color: var(--backgroundCards);
+  margin: auto;
+  margin-top: -40px;
+  z-index: 3;
+  position: relative;
 
   input {
     background-color: var(--backgroundCards);

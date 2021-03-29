@@ -1,10 +1,9 @@
 import React from "react";
-import { useJobsContext } from "../JobsContext";
-import { Link } from "react-router-dom";
 import "./SearchBar.scss";
 import Button from "../Button/Button.jsx";
 
 const SearchBar = () => {
+  const handleSearch = () => alert('searching');
   return (
     <div className="search">
       <label for="filter-title"></label>
@@ -29,7 +28,7 @@ const SearchBar = () => {
         ></input>
         <p className="checkbox__text">Full time only</p>
       </div>
-      <Button/>
+      <Button onClick={handleSearch}>Search</Button>
     </div>
   );
 };
