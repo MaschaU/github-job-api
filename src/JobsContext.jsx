@@ -1,17 +1,20 @@
-import {createContext, useContext} from "react";
+import { createContext, useContext } from "react";
 
 const BASE_URL = 'https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json';
 export const defaultContext = {
   defaultTheme: true,
-  setDefaultTheme: () => {},
+  setDefaultTheme: () => { },
   BASE_URL,
-  githubApi: async () => {},
+  githubApi: async () => { },
   error: null,
-  setError: () => {},
-  data: { jobs:[] },
+  setError: () => { },
+  data: { jobs: [] },
   loading: false,
   resultLength: 0,
-  setResultLength: () => {}
+  setResultLength: () => { },
+  setFullTime: () => { },
+  setLocationInput: () => { },
+  setSearchURL: () => { }
 };
 
 export const JobsContext = createContext(defaultContext);
