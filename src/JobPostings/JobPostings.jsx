@@ -118,7 +118,7 @@ const JobPostings = ({ match }) => {
     data: { jobs },
   } = useJobsContext();
 
-  const { BASE_URL, githubApi, loading, error, resultLength, searchURL, mobileFilter } = useContext(JobsContext);
+  const { BASE_URL, githubApi, loading, error, resultLength, searchURL } = useContext(JobsContext);
   const [anotherPage, setAnotherPage] = useState(2);
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
   const [scroll, setScroll] = useState(window.pageYOffset);
@@ -157,7 +157,7 @@ const JobPostings = ({ match }) => {
   return (
     <div>
       <SearchBar />
-      {loading && !searchURL && !mobileFilter && (<Spinner initialSearch />)}
+      {loading && !searchURL  && (<Spinner initialSearch />)}
       {error.error && (<Error apiError />)}
       {!error.error && !loading && searchURL && jobs.length === 0 && (<Error noJobs />)}
       {jobs && !error.error && (
@@ -180,11 +180,11 @@ const JobPostings = ({ match }) => {
             {anotherPage > 2 && !searchURL && loading && (<Spinner withinJobBoard />)}
 
           </div>
-          {resultLength >= 50 && !mobileFilter && (
+          {resultLength >= 50 && (
             <button className="button__load" onClick={loadMore}>Load More</button>
           )}
 
-          {scroll >= (windowHeight * 2) && !mobileFilter && (
+          {scroll >= (windowHeight * 2) && (
             <button
               className="scroll-back"
               onClick={() => window.scrollTo(0, 0)}>
