@@ -7,6 +7,11 @@ import responsiveHOC from "react-lines-ellipsis/lib/responsiveHOC";
 import "./JobPostings.scss";
 import PropTypes from "prop-types";
 import SearchBar from "../SearchBar/SearchBar";
+import { useState, useContext, useEffect } from 'react';
+import { JobsContext } from "../JobsContext";
+import Spinner from "../Spinner/Spinner";
+import Error from "../Error/Error";
+import { arrow } from "../visuals/desktop"
 
 const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
@@ -113,25 +118,81 @@ const JobPostings = ({ match }) => {
     data: { jobs },
   } = useJobsContext();
 
+  const { BASE_URL, githubApi, loading, error, resultLength, searchURL, mobileFilter } = useContext(JobsContext);
+  const [anotherPage, setAnotherPage] = useState(2);
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+  const [scroll, setScroll] = useState(window.pageYOffset);
+
+  function useWindowSize() {
+    useEffect(() => {
+      function updateScrollHeight() {
+        setWindowHeight(window.innerHeight)
+        setScroll(window.pageYOffset)
+      }
+      window.addEventListener('scroll', updateScrollHeight)
+      updateScrollHeight()
+      return () => window.removeEventListener('scroll', updateScrollHeight)
+    }, [])
+    return [scroll, windowHeight]
+  }
+
+  useEffect(() => {
+    setAnotherPage(2)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [resultLength < 50])
+
+  const loadMore = () => {
+    setAnotherPage(anotherPage + 1)
+
+    const endpoint = searchURL
+      ? `${searchURL}&page=${anotherPage}`
+      : `${BASE_URL}.json?page=${anotherPage}`
+
+    githubApi(endpoint)
+    sessionStorage.setItem('search URL', endpoint)
+  }
+
+  useWindowSize()
+
   return (
     <div>
       <SearchBar />
-      <div className="cards-container">
-        {jobs.map((job) => (
-          <JobPosting
-            key={job.id}
-            color={color}
-            id={job.id}
-            title={job.title}
-            company_logo={job.company_logo}
-            company={job.company}
-            created_at={job.created_at}
-            company_url={job.company_url}
-            location={job.location}
-            type={job.type}
-          />
-        ))}
-      </div>
+      {loading && !searchURL && !mobileFilter && (<Spinner initialSearch />)}
+      {error.error && (<Error apiError />)}
+      {!error.error && !loading && searchURL && jobs.length === 0 && (<Error noJobs />)}
+      {jobs && !error.error && (
+        <>
+          <div className="cards-container">
+            {jobs.map((job) => (
+              <JobPosting
+                key={job.id}
+                color={color}
+                id={job.id}
+                title={job.title}
+                company_logo={job.company_logo}
+                company={job.company}
+                created_at={job.created_at}
+                company_url={job.company_url}
+                location={job.location}
+                type={job.type}
+              />
+            ))}
+            {anotherPage > 2 && !searchURL && loading && (<Spinner withinJobBoard />)}
+
+          </div>
+          {resultLength >= 50 && !mobileFilter && (
+            <button className="button__load" onClick={loadMore}>Load More</button>
+          )}
+
+          {scroll >= (windowHeight * 2) && !mobileFilter && (
+            <button
+              className="scroll-back"
+              onClick={() => window.scrollTo(0, 0)}>
+              <img src={arrow} alt="" />
+            </button>
+          )}
+        </>
+      )}
     </div>
   );
 };
