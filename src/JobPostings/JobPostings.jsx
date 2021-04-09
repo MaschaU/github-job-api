@@ -11,7 +11,7 @@ import { useState, useContext, useEffect } from 'react';
 import { JobsContext } from "../JobsContext";
 import Spinner from "../Spinner/Spinner";
 import Error from "../Error/Error";
-import { arrow } from "../visuals/desktop"
+// import { arrow } from "../visuals/desktop"
 
 const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
@@ -29,29 +29,6 @@ const colors = [
   "#60DCAD",
   "#FF585F",
 ];
-
-// const shortenedUrl = (url) => {
-//   // if (url === null || url.length === 0 || url === "http:" || url === "https:") {
-//   if (!url || url === "http:" || url === "https:") {
-//     return "";
-//   }
-
-//   const { hostname } = new URL(url);
-//   if (hostname.startsWith("www.")) {
-//     return hostname.substring(4);
-//   }
-//   return hostname;
-//   // a no-go
-//   // return url = url && url.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "").split('/')[0];
-// };
-
-// const probablyFunctionalSite = (url) => {
-// if (!url) return false;
-// return url.startsWith("http") || url.startsWith("www");
-// 1/10 would not recommend. readability issues
-// let functional = new RegExp(/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi);
-// return functional.test(url)
-// };
 
 export const JobPosting = ({
   id,
@@ -102,6 +79,18 @@ export const JobPosting = ({
   </Link>
 );
 
+// Machine,
+// Please make website
+// All responsive like
+// With big pictures oooooh
+// Use my favorite fonts
+// Also fancy menu with woooosh on
+// Load fast, please
+//
+// Thanks, human.
+//
+// Also, no bugs
+
 JobPosting.propTypes = {
   id: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
@@ -129,9 +118,9 @@ const JobPostings = ({ match }) => {
         setWindowHeight(window.innerHeight)
         setScroll(window.pageYOffset)
       }
-      window.addEventListener('scroll', updateScrollHeight)
+      window.addEventListener("scroll", updateScrollHeight)
       updateScrollHeight()
-      return () => window.removeEventListener('scroll', updateScrollHeight)
+      return () => window.removeEventListener("scroll", updateScrollHeight)
     }, [])
     return [scroll, windowHeight]
   }
@@ -149,7 +138,7 @@ const JobPostings = ({ match }) => {
       : `${BASE_URL}.json?page=${anotherPage}`
 
     githubApi(endpoint)
-    sessionStorage.setItem('search URL', endpoint)
+    sessionStorage.setItem("search URL", endpoint)
   }
 
   useWindowSize()
@@ -157,7 +146,7 @@ const JobPostings = ({ match }) => {
   return (
     <div>
       <SearchBar />
-      {loading && !searchURL  && (<Spinner initialSearch />)}
+      {loading && !searchURL && (<Spinner initialSearch />)}
       {error.error && (<Error apiError />)}
       {!error.error && !loading && searchURL && jobs.length === 0 && (<Error noJobs />)}
       {jobs && !error.error && (
@@ -177,20 +166,13 @@ const JobPostings = ({ match }) => {
                 type={job.type}
               />
             ))}
+            {resultLength >= 50 && (
+              <button className="button__load" onClick={loadMore}>Load More</button>
+            )}
             {anotherPage > 2 && !searchURL && loading && (<Spinner withinJobBoard />)}
 
           </div>
-          {resultLength >= 50 && (
-            <button className="button__load" onClick={loadMore}>Load More</button>
-          )}
 
-          {scroll >= (windowHeight * 2) && (
-            <button
-              className="scroll-back"
-              onClick={() => window.scrollTo(0, 0)}>
-              <img src={arrow} alt="" />
-            </button>
-          )}
         </>
       )}
     </div>
