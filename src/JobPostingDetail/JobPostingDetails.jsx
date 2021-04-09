@@ -37,9 +37,9 @@ const JobPostingDetails = ({ match }) => {
   //   )
   // }
   const [posting, setPosting] = useState();
-  useEffect (() => {
+  useEffect(() => {
     jobs && setPosting(jobs.find((posting) => posting.id === match.params.jobID));
-  }, [jobs, match.params.jobID] );
+  }, [jobs, match.params.jobID]);
 
   const job = jobs.find((posting) => posting.id === match.params.jobID);
 
@@ -89,6 +89,11 @@ const JobPostingDetails = ({ match }) => {
             <h1 className="header__heading">{posting.company}</h1>
             <h3 className="header__company-url">{shortenedUrl(posting.company_url)}</h3>
           </div>
+          <div className={`header__company-redirect ${!probablyFunctionalSite(posting.company_url) ? 'invalid' : ""}`}>
+            <a className="button" target="_blank" rel="noopener noreferrer" href={posting.company_url}>
+              Company site
+            </a>
+          </div>
         </div>
       )}
 
@@ -96,7 +101,4 @@ const JobPostingDetails = ({ match }) => {
   )
 }
 export default JobPostingDetails;
-
-
-
 
