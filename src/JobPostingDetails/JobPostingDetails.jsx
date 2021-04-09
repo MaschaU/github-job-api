@@ -107,7 +107,11 @@ const JobPostingDetails = ({ match }) => {
               <a className="body__heading__redirect button" href={applyNow(posting.how_to_apply)} target="_blank" rel="noopener noreferrer">Apply Now</a>
             </div>
             <div className="body__main" dangerouslySetInnerHTML={{__html: posting.description}}></div>
-            
+            <div className="job__details__application">
+              <h3 className="application__heading">How to apply</h3><br/>
+              <p className="application__body" dangerouslySetInnerHTML={{__html: posting.how_to_apply}} />
+
+            </div>
           </div>
         </div>
       
@@ -118,6 +122,9 @@ const JobPostingDetails = ({ match }) => {
   )
 }
 export default JobPostingDetails;
+
+
+
 
 
 
