@@ -6,3 +6,5 @@ export { default as iconMoon } from "./desktop/icon-moon.svg";
 export { default as iconSearch } from "./desktop/icon-search.svg";
 export { default as iconSun } from "./desktop/icon-sun.svg";
 export { default as logo } from "./desktop/logo.svg";
+export { default as error_logo } from "./desktop/error_logo.png";
+export { default as arrow } from "./desktop/arrow.svg";

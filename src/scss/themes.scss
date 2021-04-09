@@ -4,14 +4,9 @@ html {
   --thinText: #{$darkGrey};
   --boldText: #{$veryDarkBlue};
   --buttonBackground: #{$primary};
-  
-
-  
-  
-  
 }
 
-html[data-theme="dark"] {
+[data-theme="dark"] {
   --background: #{$midnight};
   --backgroundCards: #{$veryDarkBlue};
   --thinText: #{$darkGrey};

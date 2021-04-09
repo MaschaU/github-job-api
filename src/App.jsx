@@ -14,7 +14,11 @@ function App() {
   const [data, setData] = useState({ jobs: [] });
   const [loading, setLoading] = useState();
   const [error, setError] = useState({ error: false });
-  const [resultLength, setResultLength] = useState();
+  const [resultLength, setResultLength] = useState("");
+  const [searchInput, setSearchInput] = useState("");
+  const [locationInput, setLocationInput] = useState("");
+  const [fullTime, setFullTime] = useState(false);
+  const [searchURL, setSearchURL] = useState("");
 
   const githubApi = async (url) => {
     console.info("fetching jobs");
@@ -56,6 +60,14 @@ function App() {
         loading,
         resultLength,
         setResultLength,
+        searchInput, 
+        setSearchInput,
+        locationInput, 
+        setLocationInput,
+        fullTime, 
+        setFullTime,
+        searchURL,
+        setSearchURL
       }}
     >
       <Header />
