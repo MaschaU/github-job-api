@@ -2,7 +2,7 @@ import React, { useEffect, useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { JobsContext } from "../JobsContext";
 import Spinner from "../Spinner/Spinner";
-import Error from "../Error/Error";
+import ErrorDisplay from "../ErrorDisplay/ErrorDisplay";
 import * as moment from "moment";
 
 
@@ -25,7 +25,7 @@ const color = colors[Math.floor(Math.random() * colors.length)];
 
 
 const JobPostingDetails = ({ match }) => {
-  const { data: { jobs }, githubApi, BASE_URL, loading, error } = useContext(JobsContext);
+  const { data: { jobs }, loading, error } = useContext(JobsContext);
 
   // useEffect(() => {
   //   if (!jobs) {
@@ -79,9 +79,7 @@ const JobPostingDetails = ({ match }) => {
     <>
       <Link to="/jobs"></Link>
       {loading && (<Spinner />)}
-      {error.error && (<Error />)}
-      {job.title}
-
+      {error.error && (<ErrorDisplay />)}
       {posting && !error.error && (
         <div className="job__details">
           <div className="job__details__header">

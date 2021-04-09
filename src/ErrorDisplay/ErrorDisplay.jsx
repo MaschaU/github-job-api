@@ -1,12 +1,10 @@
 import React from "react";
-import { useContext } from "react";
 import { error_logo } from "../visuals/desktop";
-import { JobsContext } from "../JobsContext";
+import { useJobsContext } from "../JobsContext";
 
-const Error = ({ noJobs, apiError }) => {
-    const { error } = useContext(JobsContext)
+const ErrorDisplay = ({ noJobs, apiError }) => {
+    const { error, location } = useJobsContext();
     const search = localStorage.getItem("search");
-    const location = localStorage.getItem("location");
     const full = localStorage.getItem("full time");
 
     return (
@@ -25,4 +23,4 @@ const Error = ({ noJobs, apiError }) => {
     )
 }
 
-export default Error;
+export default ErrorDisplay;

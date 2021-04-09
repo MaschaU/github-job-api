@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import "./SearchBar.scss";
-import { JobsContext, useJobsContext } from "../JobsContext";
+import { useJobsContext } from "../JobsContext";
 import Button from "../Button/Button.jsx";
 
 const SearchBar = () => {
-  const { BASE_URL, githubApi, searchInput, locationInput, setLocationInput, fullTime, setFullTime, setSearchURL } = useContext(JobsContext);
+  const { BASE_URL, githubApi, searchInput, locationInput, setLocationInput, fullTime, setFullTime, setSearchURL } = useJobsContext();
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -26,7 +26,7 @@ const SearchBar = () => {
         setSearchURL(searchEndpoint)
         githubApi(searchEndpoint)
         localStorage.setItem("search", searchInput.trim())
-        localStorage.setItem("location", locationInput.trim())
+        setLocationInput(locationInput.trim());
         localStorage.setItem("full time", fullTime)
         sessionStorage.setItem("search URL", searchEndpoint)
     } else {

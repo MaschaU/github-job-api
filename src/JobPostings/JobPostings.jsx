@@ -10,7 +10,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import { useState, useContext, useEffect } from 'react';
 import { JobsContext } from "../JobsContext";
 import Spinner from "../Spinner/Spinner";
-import Error from "../Error/Error";
+import ErrorDisplay from "../ErrorDisplay/ErrorDisplay";
 // import { arrow } from "../visuals/desktop"
 
 const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
@@ -147,8 +147,8 @@ const JobPostings = ({ match }) => {
     <div>
       <SearchBar />
       {loading && !searchURL && (<Spinner initialSearch />)}
-      {error.error && (<Error apiError />)}
-      {!error.error && !loading && searchURL && jobs.length === 0 && (<Error noJobs />)}
+      {error.error && (<ErrorDisplay apiError />)}
+      {!error.error && !loading && searchURL && jobs.length === 0 && (<ErrorDisplay noJobs />)}
       {jobs && !error.error && (
         <>
           <div className="cards-container">
@@ -167,7 +167,7 @@ const JobPostings = ({ match }) => {
               />
             ))}
             {resultLength >= 50 && (
-              <button className="button__load" onClick={loadMore}>Load More</button>
+              <button className="button__load button" onClick={loadMore}>Load More</button>
             )}
             {anotherPage > 2 && !searchURL && loading && (<Spinner withinJobBoard />)}
 
