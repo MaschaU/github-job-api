@@ -85,6 +85,10 @@ const JobPostingDetails = ({ match }) => {
             {posting.company_logo && (<img src={posting.company_logo} alt={`${posting.company} company logo`} />)}
             {!posting.company_logo && (<div className="no-logo" style={{ backgroundColor: color }}>n / a</div>)}
           </div>
+          <div className="header">
+            <h1 className="header__heading">{posting.company}</h1>
+            <h3 className="header__company-url">{shortenedUrl(posting.company_url)}</h3>
+          </div>
         </div>
       )}
 
@@ -92,6 +96,7 @@ const JobPostingDetails = ({ match }) => {
   )
 }
 export default JobPostingDetails;
+
 
 
 
