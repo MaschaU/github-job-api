@@ -102,7 +102,10 @@ const JobPostingDetails = ({ match }) => {
               <span className="body__heading__time">{moment(posting.created_at).fromNow()}</span>
               <span style={{margin: "0 10px"}}>•</span>
               <span className="body__heading__type">{posting.type}</span>
+              <h1 className="body__heading__title">{posting.title}</h1>
+              <h3 className="body__heading__location">{posting.location}</h3>
             </div>
+            
           </div>
         </div>
       
@@ -114,3 +117,5 @@ const JobPostingDetails = ({ match }) => {
 }
 export default JobPostingDetails;
 
+
+                  

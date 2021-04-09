@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { JobsContext } from "./JobsContext";
 import JobPostings from "./JobPostings/JobPostings";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import JobPostingDetails from "./JobPostingDetail/JobPostingDetails";
+import JobPostingDetails from "./JobPostingDetails/JobPostingDetails";
 
 function App() {
   const [defaultTheme, setDefaultTheme] = useState(
