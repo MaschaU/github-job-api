@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { JobsContext } from "../JobsContext";
 import Spinner from "../Spinner/Spinner";
 import Error from "../Error/Error";
+import * as moment from "moment";
+
 
 const colors = [
   "#df6dae",
@@ -37,6 +39,7 @@ const JobPostingDetails = ({ match }) => {
   //   )
   // }
   const [posting, setPosting] = useState();
+
   useEffect(() => {
     jobs && setPosting(jobs.find((posting) => posting.id === match.params.jobID));
   }, [jobs, match.params.jobID]);
@@ -94,7 +97,16 @@ const JobPostingDetails = ({ match }) => {
               Company site
             </a>
           </div>
+          <div className="job__details__body">
+            <div className="body__heading">
+              <span className="body__heading__time">{moment(posting.created_at).fromNow()}</span>
+              <span style={{margin: "0 10px"}}>•</span>
+              <span className="body__heading__type">{posting.type}</span>
+            </div>
+          </div>
         </div>
+      
+      
       )}
 
     </>
