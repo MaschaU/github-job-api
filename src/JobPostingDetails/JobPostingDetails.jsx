@@ -100,22 +100,28 @@ const JobPostingDetails = ({ match }) => {
           <div className="job__details__body">
             <div className="body__heading">
               <span className="body__heading__time">{moment(posting.created_at).fromNow()}</span>
-              <span style={{margin: "0 10px"}}>•</span>
+              <span style={{ margin: "0 10px" }}>•</span>
               <span className="body__heading__type">{posting.type}</span>
               <h1 className="body__heading__title">{posting.title}</h1>
               <h3 className="body__heading__location">{posting.location}</h3>
               <a className="body__heading__redirect button" href={applyNow(posting.how_to_apply)} target="_blank" rel="noopener noreferrer">Apply Now</a>
             </div>
-            <div className="body__main" dangerouslySetInnerHTML={{__html: posting.description}}></div>
+            <div className="body__main" dangerouslySetInnerHTML={{ __html: posting.description }}></div>
             <div className="job__details__application">
-              <h3 className="application__heading">How to apply</h3><br/>
-              <p className="application__body" dangerouslySetInnerHTML={{__html: posting.how_to_apply}} />
-
+              <h3 className="application__heading">How to apply</h3><br />
+              <p className="application__body" dangerouslySetInnerHTML={{ __html: posting.how_to_apply }} />
             </div>
           </div>
+          <footer className="job__details__footer">
+            <h3 className="footer__text">{posting.title}</h3>
+            <small className="footer__company">{posting.company}</small>
+            <a className="footer__button button" href={applyNow(posting.how_to_apply)} rel="noopener noreferrer" target="_blank">
+              Apply Now
+            </a>
+          </footer>
         </div>
-      
-      
+
+
       )}
 
     </>
@@ -133,4 +139,6 @@ export default JobPostingDetails;
 
 
 
-                  
+
+
+
