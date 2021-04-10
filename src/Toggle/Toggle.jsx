@@ -35,18 +35,18 @@ const Toggle = () => {
       <div class="theme-switch">
         
 					<span>
-            <img src={iconSun} alt="sun" />
+            <img className="theme-switch__logo" src={iconSun} alt="sun" />
           </span>
-					<div class="toggle toggle--daynight">
-						<input type="checkbox" id="toggle--daynight" 
-						className={`toggle--checkbox ${!defaultTheme ? "active" : ""}`}
+					<div class="toggle toggle__modes">
+						<input type="checkbox" id="toggle__modes" 
+						className={`toggle__checkbox ${!defaultTheme ? "active" : ""}`}
 						onClick={() => switchTheme()}/>
-						<label class="toggle--btn" for="toggle--daynight">
-						<span class="toggle--feature"></span>
+						<label class="toggle__btn" for="toggle__modes">
+						<span class="toggle__feature"></span>
 						</label>
 					</div>
 					<span>
-            <img src={iconMoon} alt="moon" />
+            <img className="theme-switch__logo" src={iconMoon} alt="moon" />
           </span>
           
         

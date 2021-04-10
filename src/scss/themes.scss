@@ -4,6 +4,8 @@ html {
   --thinText: #{$darkGrey};
   --boldText: #{$veryDarkBlue};
   --buttonBackground: #{$primary};
+  --toggleBackground: #{$white};
+  --toggle: #{$primaryLight};
 }
 
 [data-theme="dark"] {
@@ -12,5 +14,6 @@ html {
   --thinText: #{$darkGrey};
   --boldText: #{$white};
   --buttonBackground: #{$primaryLight};
-  
+  --toggleBackground: #{$white};
+  --toggle: #{$primaryLight};
 }
