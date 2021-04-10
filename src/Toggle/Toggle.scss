@@ -9,10 +9,12 @@
 	height: 30px;
 	display: flex;
 	flex-direction: row;
+	margin-left: 100%;
 
 	&__logo {
 		height: 20px;
 		width: 20px;
+		margin-top: 4px;
 	}
 }
 
@@ -54,16 +56,18 @@
 .toggle__modes {
 	.toggle__btn {
 		position: relative;
-		height: 30px;
-		width: 70px;
+		height: 26px;
+		width: 66px;
 		border-radius: 30px;
+		margin-left: 10px;
+		margin-right: 10px;
 
 		&:before {
 			position: absolute;
 			top: 2px;
 			left: 4px;
-			width: 24px;
-			height: 24px;
+			width: 20px;
+			height: 20px;
 			border-radius: 50%;
 		}
 	}
@@ -76,7 +80,7 @@
 		&:before {
 			background-color: var(--toggle);
 		}
-		
+
 		&:after {
 			position: absolute;
 			top: 62%;

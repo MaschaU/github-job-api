@@ -14,6 +14,8 @@
     padding: 0 9vw;
     position: absolute;
     top: 50px;
+    display: flex;
+    flex-direction: row;
 
     .header__toggle {
       display: flex;
