@@ -4,7 +4,7 @@ import { useJobsContext } from "../JobsContext";
 import Button from "../Button/Button.jsx";
 
 const SearchBar = () => {
-  const { BASE_URL, githubApi, searchInput, locationInput, setLocationInput, fullTime, setFullTime, setSearchURL } = useJobsContext();
+  const { BASE_URL, githubApi, searchInput, setSearchInput, locationInput, setLocationInput, fullTime, setFullTime, setSearchURL } = useJobsContext();
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -25,9 +25,9 @@ const SearchBar = () => {
     if (search || location || full) {
         setSearchURL(searchEndpoint)
         githubApi(searchEndpoint)
-        localStorage.setItem("search", searchInput.trim())
+        setSearchInput("search", searchInput.trim())
         setLocationInput(locationInput.trim());
-        localStorage.setItem("full time", fullTime)
+        setFullTime("full time", fullTime)
         sessionStorage.setItem("search URL", searchEndpoint)
     } else {
         githubApi(`${BASE_URL}`)

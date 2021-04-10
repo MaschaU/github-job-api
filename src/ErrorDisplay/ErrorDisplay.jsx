@@ -3,9 +3,8 @@ import { error_logo } from "../visuals/desktop";
 import { useJobsContext } from "../JobsContext";
 
 const ErrorDisplay = ({ noJobs, apiError }) => {
-    const { error, location } = useJobsContext();
-    const search = localStorage.getItem("search");
-    const full = localStorage.getItem("full time");
+    const { error, location, search, full } = useJobsContext();
+    
 
     return (
         <div className="error">
