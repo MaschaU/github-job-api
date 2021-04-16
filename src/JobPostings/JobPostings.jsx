@@ -40,43 +40,45 @@ export const JobPosting = ({
   location,
   type,
 }) => (
-  <Link className="card" to={`/job/${id}`}>
-    <div className="card__header">
-      <div className="card__logo">
-        {company_logo ? (
-          <img
-            src={company_logo}
-            alt={`${company} company logo`}
-            style={{ backgroundColor: "white" }}
-          />
-        ) : (
-          <div
-            className="card__no-logo"
-            style={{ backgroundColor: color }}
-          ></div>
-        )}
+  <div className="card">
+    <Link className="card__link" to={`/job/${id}`}>
+      <div className="card__header">
+        <div className="card__logo">
+          {company_logo ? (
+            <img
+              src={company_logo}
+              alt={`${company} company logo`}
+              style={{ backgroundColor: "white" }}
+            />
+          ) : (
+            <div
+              className="card__no-logo"
+              style={{ backgroundColor: color }}
+            ></div>
+          )}
+        </div>
       </div>
-    </div>
-    <span className="card__span">{moment(created_at).fromNow()}</span>
-    <span className="card__span">&#8226;</span>
-    <span className="card__span">{type}</span>
-    <div className="card__body">
-      <ResponsiveEllipsis
-        className="thumbnail__title"
-        text={title}
-        component="h2"
-        maxLine={2}
-      />
-      <small>{company}</small>
-    </div>
-    <div className="card__footer">
-      <ResponsiveEllipsis
-        className="thumbnail__location"
-        text={location}
-        component="small"
-      />
-    </div>
-  </Link>
+      <span className="card__span">{moment(created_at).fromNow()}</span>
+      <span className="card__span">&#8226;</span>
+      <span className="card__span">{type}</span>
+      <div className="card__body">
+        <ResponsiveEllipsis
+          className="thumbnail__title"
+          text={title}
+          component="h2"
+          maxLine={2}
+        />
+        <small>{company}</small>
+      </div>
+      <div className="card__footer">
+        <ResponsiveEllipsis
+          className="thumbnail__location"
+          text={location}
+          component="small"
+        />
+      </div>
+    </Link>
+  </div>
 );
 
 // Machine,

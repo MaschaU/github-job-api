@@ -1,7 +1,7 @@
 @import "../scss/variables";
 
 .main-container {
-  width: 80%;
+  width: 100%;
   margin: auto;
 }
 
@@ -9,22 +9,28 @@
   background-color: var(--background);
   display: flex;
   flex-wrap: wrap;
-  height: 1132px;
-  width: calc(80% - var(--extraMargin));
+  width: 80%;
+  width: calc(80% + 40px);
   margin: auto;
   margin-top: 280px;
-  margin-left: 135px;
 }
 
 .card {
-  width: 380px;
-  height: 228px;
-  top: 305px;
-  left: 166px;
-  border-radius: 6px;
-  background-color: var(--backgroundCards);
-  margin: 20px;
-  text-decoration: none;
+  padding: 20px;
+  width: 50%;
+
+  @media (min-width: 1024px) {
+    width: 33%;
+  }
+
+  &__link {
+    display: block;
+    top: 305px;
+    left: 166px;
+    border-radius: 6px;
+    background-color: var(--backgroundCards);
+    text-decoration: none;
+  }
 
   &__header {
     img {
