@@ -84,7 +84,7 @@ const JobPostingDetails = ({ match }) => {
       {posting && !error.error && (
         <div className="job__details">
           <div className="job__details__header">
-            {posting.company_logo && (<img className="header__logo" src={posting.company_logo} alt={`${posting.company} company logo`} />)}
+            {posting.company_logo && (<img src={posting.company_logo} alt={`${posting.company} company logo`} />)}
             {!posting.company_logo && (<div className="no-logo" style={{ backgroundColor: color }}>n / a</div>)}
             <h1 className="header__heading">{posting.company}</h1>
             <h3 className="header__company-url">{shortenedUrl(posting.company_url)}</h3>

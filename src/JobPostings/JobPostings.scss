@@ -12,12 +12,13 @@
   width: 80%;
   width: calc(80% + 40px);
   margin: auto;
-  margin-top: 280px;
+  margin-top: 200px;
 }
 
 .card {
   padding: 20px;
   width: 50%;
+  margin-top: 20px;
 
   @media (min-width: 1024px) {
     width: 33%;
@@ -33,6 +34,8 @@
   }
 
   &__header {
+    height: 50px;
+
     img {
       width: 50px;
       height: 50px;
@@ -57,6 +60,7 @@
     .thumbnail__title {
       color: var(--boldText);
       margin: 10px;
+      margin-top: 20px;
     }
     small {
       color: var(--thinText);
@@ -65,6 +69,8 @@
   }
 
   &__footer {
+    padding-bottom: 10px;
+
     .thumbnail__location {
       color: var(--thinText);
       margin: 10px;

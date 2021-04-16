@@ -1,9 +1,14 @@
 .job__details {
 	&__header {
-		&__logo {
+		img, .no-logo {
 			height: 70px;
 			width: 70px;
 		}
+
+		h1 {
+			color: var(--boldText);
+		}
+
 	}
 }
 
