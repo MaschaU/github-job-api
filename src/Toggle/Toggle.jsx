@@ -31,16 +31,16 @@ const Toggle = () => {
 		}
 	};
 	return (
-		<div class="theme-switch">
+		<div className="theme-switch">
 			<span>
 				<img className="theme-switch__logo" src={iconSun} alt="sun" />
 			</span>
-			<div class="toggle toggle__modes">
+			<div className="toggle toggle__modes">
 				<input type="checkbox" id="toggle__modes"
 					className={`toggle__checkbox ${!defaultTheme ? "active" : ""}`}
 					onClick={() => switchTheme()} />
-				<label class="toggle__btn" for="toggle__modes">
-					<span class="toggle__feature"></span>
+				<label className="toggle__btn" htmlFor="toggle__modes">
+					<span className="toggle__feature"></span>
 				</label>
 			</div>
 			<span>

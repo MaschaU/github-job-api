@@ -15,7 +15,7 @@ function Spinner() {
   
   return (
     <div className="sweet-loading">
-      <ClipLoader color={color} loading={loading} css={override} size={150} />
+      <ClipLoader color={color} loading={loading} css={override} size={50} />
     </div>
   );
 }

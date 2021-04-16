@@ -47,7 +47,7 @@ export const JobPosting = ({
           <img
             src={company_logo}
             alt={`${company} company logo`}
-            style={{ backgroundColor: color }}
+            style={{ backgroundColor: "white" }}
           />
         ) : (
           <div
@@ -144,7 +144,7 @@ const JobPostings = ({ match }) => {
   useWindowSize()
 
   return (
-    <div>
+    <div className="main-container">
       <SearchBar />
       {loading && !searchURL && (<Spinner initialSearch />)}
       {error.error && (<ErrorDisplay apiError />)}

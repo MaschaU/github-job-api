@@ -4,6 +4,7 @@ import { JobsContext } from "../JobsContext";
 import Spinner from "../Spinner/Spinner";
 import ErrorDisplay from "../ErrorDisplay/ErrorDisplay";
 import * as moment from "moment";
+import "./JobPostingDetails.scss";
 
 
 const colors = [
@@ -83,17 +84,15 @@ const JobPostingDetails = ({ match }) => {
       {posting && !error.error && (
         <div className="job__details">
           <div className="job__details__header">
-            {posting.company_logo && (<img src={posting.company_logo} alt={`${posting.company} company logo`} />)}
+            {posting.company_logo && (<img className="header__logo" src={posting.company_logo} alt={`${posting.company} company logo`} />)}
             {!posting.company_logo && (<div className="no-logo" style={{ backgroundColor: color }}>n / a</div>)}
-          </div>
-          <div className="header">
             <h1 className="header__heading">{posting.company}</h1>
             <h3 className="header__company-url">{shortenedUrl(posting.company_url)}</h3>
-          </div>
-          <div className={`header__company-redirect ${!probablyFunctionalSite(posting.company_url) ? 'invalid' : ""}`}>
-            <a className="button" target="_blank" rel="noopener noreferrer" href={posting.company_url}>
-              Company site
-            </a>
+            <div className={`header__company-redirect ${!probablyFunctionalSite(posting.company_url) ? 'invalid' : ""}`}>
+              <a className="button" target="_blank" rel="noopener noreferrer" href={posting.company_url}>
+                Company site
+              </a>
+            </div>
           </div>
           <div className="job__details__body">
             <div className="body__heading">

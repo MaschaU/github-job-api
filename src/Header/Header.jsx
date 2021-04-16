@@ -1,5 +1,4 @@
 import React from "react";
-import { useJobsContext } from "../JobsContext";
 import { bgPatternHeader, logo } from "../visuals/desktop";
 import Toggle from "../Toggle/Toggle";
 

@@ -1,18 +1,23 @@
 @import "../scss/variables";
 
+.main-container {
+  width: 80%;
+  margin: auto;
+}
+
 .cards-container {
   background-color: var(--background);
-  margin: 0;
   display: flex;
   flex-wrap: wrap;
   height: 1132px;
-  width: 65%;
+  width: calc(80% - var(--extraMargin));
   margin: auto;
   margin-top: 280px;
+  margin-left: 135px;
 }
 
 .card {
-  width: 350px;
+  width: 380px;
   height: 228px;
   top: 305px;
   left: 166px;
@@ -59,4 +64,12 @@
       margin: 10px;
     }
   }
+}
+
+.card__no-logo {
+  height: 50px;
+  width: 50px;
+  margin-top: -24px;
+  margin-left: 33px;
+  border-radius: 15px;
 }
