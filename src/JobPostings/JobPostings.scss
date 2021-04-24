@@ -9,7 +9,6 @@
   background-color: var(--background);
   display: flex;
   flex-wrap: wrap;
-  width: 80%;
   width: calc(80% + 40px);
   margin: auto;
   margin-top: 200px;
@@ -21,16 +20,15 @@
   margin-top: 20px;
 
   @media (min-width: 1024px) {
-    width: 33%;
+    width: 33.333%;
   }
 
   &__link {
     display: block;
-    top: 305px;
-    left: 166px;
     border-radius: 6px;
     background-color: var(--backgroundCards);
     text-decoration: none;
+    height: 100%;
   }
 
   &__header {
@@ -43,6 +41,15 @@
       margin-left: 33px;
       border-radius: 15px;
     }
+  }
+
+  &__no-logo {
+      height: 50px;
+      width: 50px;
+      margin-top: -24px;
+      margin-left: 33px;
+      border-radius: 15px;
+      display: inline;
   }
 
   &__span {
@@ -78,10 +85,3 @@
   }
 }
 
-.card__no-logo {
-  height: 50px;
-  width: 50px;
-  margin-top: -24px;
-  margin-left: 33px;
-  border-radius: 15px;
-}

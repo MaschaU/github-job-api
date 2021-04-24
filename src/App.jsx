@@ -5,6 +5,15 @@ import JobPostings from "./JobPostings/JobPostings";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import JobPostingDetails from "./JobPostingDetails/JobPostingDetails";
 
+import mockPositions from './mock-data/positions.json';
+
+function fakeFetch() {
+  return new Promise((resolve) => setTimeout(() => resolve({
+    json: async () => mockPositions,
+    ok: true
+  }), 2000));
+}
+
 function App() {
   const [defaultTheme, setDefaultTheme] = useState(
     localStorage.getItem("themes") === "default" ? true : false
@@ -23,12 +32,13 @@ function App() {
   const githubApi = async (url) => {
     console.info("fetching jobs");
     setLoading(true);
-    let returnedResults = await fetch(url);
+    let returnedResults = await fakeFetch(); //fetch(url);
 
     let loadMoreData = url.search("page");
 
     if (returnedResults.ok) {
       let result = await returnedResults.json();
+
       setData((prev) => ({
         ...prev,
         jobs: loadMoreData !== -1 ? [...prev.jobs, ...result] : [...result],
@@ -76,7 +86,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route path="/job/:jobID" component={JobPostingDetails} />
-          <Route path="/jobs" component={JobPostings} />
+          <Route path="/" component={JobPostings} />
         </Switch>
       </BrowserRouter>
     </JobsContext.Provider>
