@@ -1,15 +1,33 @@
-.job__details {
+.details {
+	width: 80%;
+	margin: auto;
+
 	&__header {
-		img, .no-logo {
-			height: 70px;
-			width: 70px;
+		width: 80%;
+		margin: auto;
+		height: 140px;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+
+		img,
+		.no-logo {
+			height: 140px;
+			width: 140px;
 		}
 
-		h1 {
+		&__inner {
+			width: 50%;
+			display: flex;
+			flex-direction: column;
+		}
+
+		&__heading {
 			color: var(--boldText);
 		}
 
+		&__company-url {
+			color: var(--thinText);
+		}
 	}
 }
-
-

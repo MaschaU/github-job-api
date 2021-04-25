@@ -82,19 +82,21 @@ const JobPostingDetails = ({ match }) => {
       {loading && (<Spinner />)}
       {error.error && (<ErrorDisplay />)}
       {posting && !error.error && (
-        <div className="job__details">
-          <div className="job__details__header">
+        <div className="details">
+          <div className="details__header">
             {posting.company_logo && (<img src={posting.company_logo} alt={`${posting.company} company logo`} />)}
             {!posting.company_logo && (<div className="no-logo" style={{ backgroundColor: color }}>n / a</div>)}
-            <h1 className="header__heading">{posting.company}</h1>
-            <h3 className="header__company-url">{shortenedUrl(posting.company_url)}</h3>
-            <div className={`header__company-redirect ${!probablyFunctionalSite(posting.company_url) ? 'invalid' : ""}`}>
+            <div className="details__header__inner">
+              <h1 className="details__header__heading">{posting.company}</h1>
+              <h3 className="details__header__company-url">{shortenedUrl(posting.company_url)}</h3>
+              <div className={`details__header__company-redirect ${!probablyFunctionalSite(posting.company_url) ? 'invalid' : ""}`}>
+            </div>
               <a className="button" target="_blank" rel="noopener noreferrer" href={posting.company_url}>
                 Company site
               </a>
             </div>
           </div>
-          <div className="job__details__body">
+          <div className="details__body">
             <div className="body__heading">
               <span className="body__heading__time">{moment(posting.created_at).fromNow()}</span>
               <span style={{ margin: "0 10px" }}>•</span>
@@ -104,12 +106,12 @@ const JobPostingDetails = ({ match }) => {
               <a className="body__heading__redirect button" href={applyNow(posting.how_to_apply)} target="_blank" rel="noopener noreferrer">Apply Now</a>
             </div>
             <div className="body__main" dangerouslySetInnerHTML={{ __html: posting.description }}></div>
-            <div className="job__details__application">
+            <div className="details__application">
               <h3 className="application__heading">How to apply</h3><br />
               <p className="application__body" dangerouslySetInnerHTML={{ __html: posting.how_to_apply }} />
             </div>
           </div>
-          <footer className="job__details__footer">
+          <footer className="details__footer">
             <h3 className="footer__text">{posting.title}</h3>
             <small className="footer__company">{posting.company}</small>
             <a className="footer__button button" href={applyNow(posting.how_to_apply)} rel="noopener noreferrer" target="_blank">
