@@ -1,5 +1,5 @@
 .details {
-	width: 60%;
+	width: 50%;
 	margin: auto;
 
 	&__header {
@@ -73,7 +73,7 @@
 			}
 			&__title {
 				margin-left: 20px;
-				color: var(--boldText);
+				color: var(--boldTex);
 			}
 			&__location {
 				color: var(--toggle);
@@ -136,11 +136,12 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
+		margin-top: 50px;
 
 		&__text {
 			display: flex;
 			flex-direction: column;
-			margin-left: 20%;
+			margin-left: 25%;
 			color: var(--boldText);
 		}
 
@@ -149,7 +150,7 @@
 		}
 
 		.button {
-			margin-right: 20%;
+			margin-right: 25%;
 			background-color: var(--buttonDetails);
 			border: none;
 			color: var(--primary);
