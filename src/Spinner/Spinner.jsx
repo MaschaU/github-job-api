@@ -1,22 +1,9 @@
-import React, { useState } from "react";
-import { css } from "@emotion/core";
-import ClipLoader from "react-spinners/ClipLoader";
+import React from "react";
 
-const override = css`
-  display: block;
-  margin: 0 auto;
-  border-color: var(--boldText);
-`;
+import "./Spinner.scss";
 
-function Spinner() {
-  let loading = useState(true);
-  let color = useState();
+const Spinner = () => (
+  <div className="spinner"></div>
+);
 
-  
-  return (
-    <div className="sweet-loading">
-      <ClipLoader color={color} loading={loading} css={override} size={50} />
-    </div>
-  );
-}
 export default Spinner;
