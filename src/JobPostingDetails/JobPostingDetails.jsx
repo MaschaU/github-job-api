@@ -6,6 +6,7 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay";
 import * as moment from "moment";
 import "./JobPostingDetails.scss";
 import Button from "../Button/Button";
+import { bgFooter } from "../visuals/desktop";
 
 
 const colors = [
@@ -93,24 +94,25 @@ const JobPostingDetails = ({ match }) => {
               <div className={`details__header__company-redirect ${!probablyFunctionalSite(posting.company_url) ? 'invalid' : ""}`}>
               </div>
             </div>
-
-            <Button className="details__header__button" href={posting.company_url}>
+            <Button className="button " href={posting.company_url}>
               Company site
               </Button>
-
-
           </div>
           <div className="details__body">
-            <div className="body__heading">
-              <span className="body__heading__time">{moment(posting.created_at).fromNow()}</span>
-              <span style={{ margin: "0 10px" }}>•</span>
-              <span className="body__heading__type">{posting.type}</span>
-              <h1 className="body__heading__title">{posting.title}</h1>
-              <h3 className="body__heading__location">{posting.location}</h3>
-              <a className="body__heading__redirect button" href={applyNow(posting.how_to_apply)} target="_blank" rel="noopener noreferrer">Apply Now</a>
+            <div className="details__body__heading">
+              <div>
+                <span className="details__body__heading__time">{moment(posting.created_at).fromNow()}</span>
+                <span className="details__body__heading__dot" style={{ margin: "0 10px" }}>•</span>
+                <span className="details__body__heading__type">{posting.type}</span>
+                <h1 className="details__body__heading__title">{posting.title}</h1>
+                <h3 className="details__body__heading__location">{posting.location}</h3>
+              </div>
+              <div>
+                <Button className="button" href={applyNow(posting.how_to_apply)} target="_blank" rel="noopener noreferrer">Apply Now</Button>
+              </div>
             </div>
-            <div className="body__main" dangerouslySetInnerHTML={{ __html: posting.description }}></div>
-            <div className="details__application">
+            <div className="details__body__main" dangerouslySetInnerHTML={{ __html: posting.description }}></div>
+            <div className="details__body__application">
               <h3 className="application__heading">How to apply</h3><br />
               <p className="application__body" dangerouslySetInnerHTML={{ __html: posting.how_to_apply }} />
             </div>

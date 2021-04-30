@@ -1,4 +1,6 @@
-.details {
+
+
+details {
 	width: 60%;
 	margin: auto;
 
@@ -19,32 +21,28 @@
 		.no-logo {
 			height: 140px;
 			width: 140px;
-			
 		}
 
 		&__inner {
 			width: 50%;
 			display: flex;
 			flex-direction: column;
-			justify-content: space-between;
+			justify-content: space-evenly;
 		}
 
 		&__heading {
 			color: var(--boldText);
-			margin-top: 45px;
-			font-size: 20px;
-			
+			margin-top: 35px;
+			font-size: 24px;
 		}
 
 		&__company-url {
 			color: var(--thinText);
-			margin-top: -25px;
+			margin-top: -10px;
 			font-weight: 200;
 			font-size: 16px;
 			
 		}
-
-		
 	}
 
 	.button {
@@ -53,5 +51,52 @@
 		margin-right: 50px;
 		margin-top: 45px;
 		width: 17%;
+	}
+
+	&__body {
+		background-color: var(--backgroundCards);
+		margin-top: 50px;
+
+		&__heading {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			&__time,
+			&__type,
+			&__dot {
+				color: var(--thinText);
+				margin-left: 20px;
+			}
+			&__title {
+				margin-left: 20px;
+			}
+			&__location {
+				color: var(--toggle);
+				margin-left: 20px;
+			}
+
+			.button {
+				background-color: var(--toggle);
+				color: var(--primary);
+				margin-right: 100px;
+				margin-top: 45px;
+				width: 72%;
+			}
+		}
+
+		&__main {
+			p, li {
+				color: var(--thinText);
+				font-weight: lighter;
+				margin: 20px;
+			}
+			strong {
+				color: var(--boldText);
+			}
+
+			&__application {
+				background-image:url("bgFooter.svg") ;
+			}
+		}
 	}
 }
