@@ -1,4 +1,4 @@
-export { default as bgPatternDetailFooter } from "./desktop/bg-pattern-detail-footer.svg";
+export { default as bgFooter } from "./desktop/bgFooter.svg";
 export { default as bgPatternHeader } from "./desktop/bg-pattern-header.svg";
 export { default as iconCheck } from "./desktop/icon-check.svg";
 export { default as iconLocation } from "./desktop/icon-location.svg";

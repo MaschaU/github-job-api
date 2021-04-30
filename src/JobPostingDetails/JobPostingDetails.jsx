@@ -117,7 +117,7 @@ const JobPostingDetails = ({ match }) => {
               <p className="application__body" dangerouslySetInnerHTML={{ __html: posting.how_to_apply }} />
             </div>
           </div>
-          <footer className="details__footer">
+          <footer className="details__footer" style={{ backgroundImage: `url(${bgFooter})` }}>
             <h3 className="footer__text">{posting.title}</h3>
             <small className="footer__company">{posting.company}</small>
             <a className="footer__button button" href={applyNow(posting.how_to_apply)} rel="noopener noreferrer" target="_blank">
