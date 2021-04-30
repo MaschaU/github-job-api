@@ -84,45 +84,49 @@ const JobPostingDetails = ({ match }) => {
       {loading && (<Spinner />)}
       {error.error && (<ErrorDisplay />)}
       {posting && !error.error && (
-        <div className="details">
-          <div className="details__header">
-            {posting.company_logo && (<img src={posting.company_logo} alt={`${posting.company} company logo`} />)}
-            {!posting.company_logo && (<div className="no-logo" style={{ backgroundColor: color }}>n / a</div>)}
-            <div className="details__header__inner">
-              <h1 className="details__header__heading">{posting.company}</h1>
-              <h3 className="details__header__company-url">{shortenedUrl(posting.company_url)}</h3>
-              <div className={`details__header__company-redirect ${!probablyFunctionalSite(posting.company_url) ? 'invalid' : ""}`}>
+        <div>
+          <div className="details">
+            <div className="details__header">
+              {posting.company_logo && (<img src={posting.company_logo} alt={`${posting.company} company logo`} />)}
+              {!posting.company_logo && (<div className="no-logo" style={{ backgroundColor: color }}>n / a</div>)}
+              <div className="details__header__inner">
+                <h1 className="details__header__heading">{posting.company}</h1>
+                <h3 className="details__header__company-url">{shortenedUrl(posting.company_url)}</h3>
+                <div className={`details__header__company-redirect ${!probablyFunctionalSite(posting.company_url) ? 'invalid' : ""}`}>
+                </div>
               </div>
-            </div>
-            <Button className="button " href={posting.company_url}>
-              Company site
+              <Button className="button " href={posting.company_url}>
+                Company site
               </Button>
-          </div>
-          <div className="details__body">
-            <div className="details__body__heading">
-              <div>
-                <span className="details__body__heading__time">{moment(posting.created_at).fromNow()}</span>
-                <span className="details__body__heading__dot" style={{ margin: "0 10px" }}>•</span>
-                <span className="details__body__heading__type">{posting.type}</span>
-                <h1 className="details__body__heading__title">{posting.title}</h1>
-                <h3 className="details__body__heading__location">{posting.location}</h3>
+            </div>
+            <div className="details__body">
+              <div className="details__body__heading">
+                <div className="details__body__heading__timestamp">
+                  <span className="details__body__heading__time">{moment(posting.created_at).fromNow()}</span>
+                  <span className="details__body__heading__dot" style={{ margin: "0 10px" }}>•</span>
+                  <span className="details__body__heading__type">{posting.type}</span>
+                  <h1 className="details__body__heading__title">{posting.title}</h1>
+                  <h3 className="details__body__heading__location">{posting.location}</h3>
+                </div>
+                <div>
+                  <Button className="button" href={applyNow(posting.how_to_apply)} target="_blank" rel="noopener noreferrer">Apply Now</Button>
+                </div>
               </div>
-              <div>
-                <Button className="button" href={applyNow(posting.how_to_apply)} target="_blank" rel="noopener noreferrer">Apply Now</Button>
+              <div className="details__body__main" dangerouslySetInnerHTML={{ __html: posting.description }}></div>
+              <div className="details__body__application" style={{ backgroundImage: `url(${bgFooter})`, width: "100%", objectFit: "cover" }}>
+                <h3 className="application__heading">How to apply</h3><br />
+                <p className="application__body" dangerouslySetInnerHTML={{ __html: posting.how_to_apply }} />
               </div>
             </div>
-            <div className="details__body__main" dangerouslySetInnerHTML={{ __html: posting.description }}></div>
-            <div className="details__body__application">
-              <h3 className="application__heading">How to apply</h3><br />
-              <p className="application__body" dangerouslySetInnerHTML={{ __html: posting.how_to_apply }} />
-            </div>
           </div>
-          <footer className="details__footer" style={{ backgroundImage: `url(${bgFooter})` }}>
-            <h3 className="footer__text">{posting.title}</h3>
-            <small className="footer__company">{posting.company}</small>
-            <a className="footer__button button" href={applyNow(posting.how_to_apply)} rel="noopener noreferrer" target="_blank">
+          <footer className="details__footer" >
+            <div className="details__footer__text">
+              <h3 className="footer__text">{posting.title}</h3>
+              <small className="footer__company">{posting.company}</small>
+            </div>
+            <Button className="footer__button button" href={applyNow(posting.how_to_apply)} rel="noopener noreferrer" target="_blank">
               Apply Now
-            </a>
+            </Button>
           </footer>
         </div>
 

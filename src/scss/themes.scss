@@ -6,6 +6,7 @@ html {
   --buttonBackground: #{$primary};
   --toggleBackground: #{$white};
   --toggle: #{$primaryLight};
+  --buttonDetails: #{$violetLight}
 }
 
 [data-theme="dark"] {
