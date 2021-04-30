@@ -1,33 +1,57 @@
 .details {
-	width: 80%;
+	width: 60%;
 	margin: auto;
 
 	&__header {
 		width: 100%;
 		margin: auto;
+		margin-top: -25px;
 		height: 140px;
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
+		justify-content: space-between;
+		background-color: var(--backgroundCards);
+		position: relative;
+		z-index: 3;
 
 		img,
 		.no-logo {
 			height: 140px;
 			width: 140px;
+			
 		}
 
 		&__inner {
 			width: 50%;
 			display: flex;
 			flex-direction: column;
+			justify-content: space-between;
 		}
 
 		&__heading {
 			color: var(--boldText);
+			margin-top: 45px;
+			font-size: 20px;
+			
 		}
 
 		&__company-url {
 			color: var(--thinText);
+			margin-top: -25px;
+			font-weight: 200;
+			font-size: 16px;
+			
 		}
+
+		
+	}
+
+	.button {
+		background-color: var(--toggle);
+		color: var(--primary);
+		margin-right: 50px;
+		margin-top: 45px;
+		width: 17%;
 	}
 }

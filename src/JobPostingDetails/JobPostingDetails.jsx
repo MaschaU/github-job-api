@@ -5,6 +5,7 @@ import Spinner from "../Spinner/Spinner";
 import ErrorDisplay from "../ErrorDisplay/ErrorDisplay";
 import * as moment from "moment";
 import "./JobPostingDetails.scss";
+import Button from "../Button/Button";
 
 
 const colors = [
@@ -90,11 +91,14 @@ const JobPostingDetails = ({ match }) => {
               <h1 className="details__header__heading">{posting.company}</h1>
               <h3 className="details__header__company-url">{shortenedUrl(posting.company_url)}</h3>
               <div className={`details__header__company-redirect ${!probablyFunctionalSite(posting.company_url) ? 'invalid' : ""}`}>
+              </div>
             </div>
-              <a className="button" target="_blank" rel="noopener noreferrer" href={posting.company_url}>
-                Company site
-              </a>
-            </div>
+
+            <Button className="details__header__button" href={posting.company_url}>
+              Company site
+              </Button>
+
+
           </div>
           <div className="details__body">
             <div className="body__heading">

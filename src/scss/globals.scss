@@ -8,6 +8,10 @@ html {
   box-sizing: inherit;
 }
 
+#root {
+  background-color: var(--background);
+}
+
 body {
   margin: 0;
   padding: 0;
