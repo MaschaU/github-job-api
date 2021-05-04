@@ -23,6 +23,8 @@
     width: 33.333%;
   }
 
+
+
   &__link {
     display: block;
     border-radius: 6px;
@@ -82,6 +84,12 @@
       color: var(--thinText);
       margin: 10px;
     }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .cards-container {
+    width: calc(90% + 40px);
   }
 }
 
