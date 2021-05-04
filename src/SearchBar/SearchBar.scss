@@ -1,4 +1,5 @@
 
+
 .search {
   width: 80%;
   height: 80px;
@@ -50,5 +51,17 @@
       margin-left: 10px;
       
     }
+  }
+}
+
+//@include responsive(500) {
+//  .search {
+//      width: 100%;
+//  }
+//}
+
+@media only screen and (max-width: 768px) {
+  .search {
+    width: 90%
   }
 }
