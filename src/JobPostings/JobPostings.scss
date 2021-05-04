@@ -1,4 +1,5 @@
 @import "../scss/variables";
+@import "../scss/mixins";
 
 .main-container {
   width: 100%;
@@ -87,7 +88,13 @@
   }
 }
 
-@media only screen and (max-width: 768px) {
+/*@media only screen and (max-width: 768px) {
+  .cards-container {
+    width: calc(90% + 40px);
+  }
+}*/
+
+@include responsive(768) {
   .cards-container {
     width: calc(90% + 40px);
   }

@@ -1,3 +1,6 @@
+@import "../scss/variables";
+@import "../scss/mixins";
+
 .details {
 	width: 50%;
 	margin: auto;
@@ -158,3 +161,9 @@
 		}
 	}
 }
+
+@include responsive(768) {
+	.details {
+	  width: 90%;
+	}
+  }
