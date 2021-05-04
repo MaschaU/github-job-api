@@ -101,19 +101,19 @@ const JobPostingDetails = ({ match }) => {
             </div>
             <div className="details__body">
               <div className="details__body__heading">
-                <div className="details__body__heading__timestamp">
-                  <span className="details__body__heading__time">{moment(posting.created_at).fromNow()}</span>
-                  <span className="details__body__heading__dot" style={{ margin: "0 10px" }}>•</span>
-                  <span className="details__body__heading__type">{posting.type}</span>
-                  <h1 className="details__body__heading__title">{posting.title}</h1>
-                  <h3 className="details__body__heading__location">{posting.location}</h3>
+                <div className="details__timestamp">
+                  <span className="details__time">{moment(posting.created_at).fromNow()}</span>
+                  <span className="details__dot" style={{ margin: "0 10px" }}>•</span>
+                  <span className="details__type">{posting.type}</span>
+                  <h1 className="details__title">{posting.title}</h1>
+                  <h3 className="details__location">{posting.location}</h3>
                 </div>
                 <div>
-                  <Button className="button" href={applyNow(posting.how_to_apply)} target="_blank" rel="noopener noreferrer">Apply Now</Button>
+                  <Button className="button details__apply-now" href={applyNow(posting.how_to_apply)} target="_blank" rel="noopener noreferrer">Apply Now</Button>
                 </div>
               </div>
-              <div className="details__body__main" dangerouslySetInnerHTML={{ __html: posting.description }}></div>
-              <div className="details__body__application" style={{ backgroundImage: `url(${bgFooter})`, width: "100%", objectFit: "cover" }}>
+              <div className="details__main" dangerouslySetInnerHTML={{ __html: posting.description }}></div>
+              <div className="details__application" style={{ backgroundImage: `url(${bgFooter})`, width: "100%", objectFit: "cover" }}>
                 <h3 className="application__heading">How to apply</h3><br />
                 <p className="application__body" dangerouslySetInnerHTML={{ __html: posting.how_to_apply }} />
               </div>
@@ -129,8 +129,6 @@ const JobPostingDetails = ({ match }) => {
             </Button>
           </footer>
         </div>
-
-
       )}
 
     </>

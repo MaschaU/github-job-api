@@ -63,70 +63,70 @@
 			&__timestamp {
 				margin-top: 20px;
 			}
+		}
+	}
 
-			&__time,
-			&__type,
-			&__dot {
-				color: var(--thinText);
-				margin-left: 20px;
-				margin-top: 15px;
-			}
-			&__title {
-				margin-left: 20px;
-				color: var(--boldTex);
-			}
-			&__location {
-				color: var(--toggle);
-				margin-left: 20px;
-			}
+ 	&__time,
+	&__type,
+	&__dot {
+		color: var(--thinText);
+		margin-left: 20px;
+		margin-top: 15px;
+	}
+	&__title {
+		margin-left: 20px;
+		color: var(--boldTex);
+	}
+	&__location {
+		color: var(--toggle);
+		margin-left: 20px;
+	}
 
-			.button {
-				background-color: var(--buttonDetails);
-				border: none;
-				color: var(--primary);
-				margin-right: 100px;
-				margin-top: 45px;
-				width: 72%;
-			}
+	&__main {
+		margin-bottom: 20px;
+		p,
+		li {
+			color: var(--thinText);
+			font-weight: lighter;
+			margin: 20px;
+		}
+		strong {
+			color: var(--boldText);
+		}
+	}
+
+	&__apply-now {
+		background-color: var(--buttonDetails);
+		border: none;
+		color: var(--primary);
+		margin-right: 100px;
+		margin-top: 45px;
+		width: 72%;
+	}
+
+	&__application {
+		border-radius: 6px;
+
+		&__body {
+			margin-top: 10px;
+		}
+		h3,
+		p,
+		a {
+			color: var(--toggleBackground);
+			text-decoration: none;
+			margin-left: 20px;
+		}
+		p {
+			margin-left: 10px;
+		}
+		h3 {
+			padding-top: 15px;
 		}
 
-		&__main {
-			margin-bottom: 20px;
-			p,
-			li {
-				color: var(--thinText);
-				font-weight: lighter;
-				margin: 20px;
-			}
-			strong {
-				color: var(--boldText);
-			}
-		}
-
-		&__application {
-			border-radius: 6px;
-
-			&__body {
-				margin-top: 10px;
-			}
-			h3,
-			p,
-			a {
-				color: var(--toggleBackground);
-				text-decoration: none;
-				margin-left: 20px;
-			}
-			p {
-				margin-left: 10px;
-			}
-			h3 {
-				padding-top: 15px;
-			}
-
-			p,
-			a {
-				padding-bottom: 1px;
-			}
+		p,
+		a {
+			padding-bottom: 1px;
 		}
 	}
 
