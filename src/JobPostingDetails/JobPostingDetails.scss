@@ -6,6 +6,15 @@
 	margin: auto;
 
 	&__header {
+		.button {
+			background-color: var(--buttonDetails);
+			color: var(--primary);
+			margin-right: 50px;
+			margin-top: 45px;
+			width: 17%;
+			border: none;
+		}
+
 		width: 100%;
 		margin: auto;
 		margin-top: -25px;
@@ -45,15 +54,6 @@
 		}
 	}
 
-	.button {
-		background-color: var(--buttonDetails);
-		color: var(--primary);
-		margin-right: 50px;
-		margin-top: 45px;
-		width: 17%;
-		border: none;
-	}
-
 	&__body {
 		background-color: var(--backgroundCards);
 		margin-top: 50px;
@@ -67,9 +67,18 @@
 				margin-top: 20px;
 			}
 		}
+
+		.button {
+			background-color: var(--buttonDetails);
+			border: none;
+			color: var(--primary);
+			margin-right: 100px;
+			margin-top: 45px;
+			width: 72%;
+		}
 	}
 
- 	&__time,
+	&__time,
 	&__type,
 	&__dot {
 		color: var(--thinText);
@@ -96,15 +105,6 @@
 		strong {
 			color: var(--boldText);
 		}
-	}
-
-	&__apply-now {
-		background-color: var(--buttonDetails);
-		border: none;
-		color: var(--primary);
-		margin-right: 100px;
-		margin-top: 45px;
-		width: 72%;
 	}
 
 	&__application {
@@ -162,8 +162,8 @@
 	}
 }
 
-@include responsive(768) {
+@include responsive(720) {
 	.details {
-	  width: 90%;
+		width: 90%;
 	}
-  }
+}

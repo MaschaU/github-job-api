@@ -94,7 +94,7 @@
   }
 }*/
 
-@include responsive(768) {
+@include responsive(720) {
   .cards-container {
     width: calc(90% + 40px);
   }

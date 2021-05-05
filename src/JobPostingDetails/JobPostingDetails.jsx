@@ -95,7 +95,7 @@ const JobPostingDetails = ({ match }) => {
                 <div className={`details__header__company-redirect ${!probablyFunctionalSite(posting.company_url) ? 'invalid' : ""}`}>
                 </div>
               </div>
-              <Button className="button " href={posting.company_url}>
+              <Button className="details__button button" href={posting.company_url}>
                 Company site
               </Button>
             </div>
@@ -109,7 +109,7 @@ const JobPostingDetails = ({ match }) => {
                   <h3 className="details__location">{posting.location}</h3>
                 </div>
                 <div>
-                  <Button className="button details__apply-now" href={applyNow(posting.how_to_apply)} target="_blank" rel="noopener noreferrer">Apply Now</Button>
+                  <Button className="body__button button" href={applyNow(posting.how_to_apply)} target="_blank" rel="noopener noreferrer">Apply Now</Button>
                 </div>
               </div>
               <div className="details__main" dangerouslySetInnerHTML={{ __html: posting.description }}></div>
