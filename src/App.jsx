@@ -28,6 +28,7 @@ function App() {
   const [locationInput, setLocationInput] = useState("");
   const [fullTime, setFullTime] = useState(false);
   const [searchURL, setSearchURL] = useState("");
+  
 
   const githubApi = async (url) => {
     console.info("fetching jobs");

@@ -11,7 +11,7 @@
 			color: var(--primary);
 			margin-right: 50px;
 			margin-top: 45px;
-			width: 17%;
+			width: 19%;
 			border: none;
 		}
 
@@ -62,20 +62,20 @@
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: space-between;
-
-			&__timestamp {
-				margin-top: 20px;
-			}
 		}
 
 		.button {
 			background-color: var(--buttonDetails);
 			border: none;
 			color: var(--primary);
-			margin-right: 100px;
+			margin-right: 90px;
 			margin-top: 45px;
 			width: 72%;
 		}
+	}
+
+	&__timestamp {
+		margin-top: 20px;
 	}
 
 	&__time,
@@ -157,12 +157,18 @@
 			background-color: var(--buttonDetails);
 			border: none;
 			color: var(--primary);
-			width: 13%;
+			width: 10%;
 		}
 	}
 }
 
 @include responsive(720) {
+	.details {
+		width: 90%;
+	}
+}
+
+@include responsive(600) {
 	.details {
 		width: 90%;
 	}
