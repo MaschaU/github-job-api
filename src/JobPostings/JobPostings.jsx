@@ -15,6 +15,7 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay";
 
 const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
+
 const colors = [
   "#df6dae",
   "#3db3d1",
@@ -81,6 +82,7 @@ export const JobPosting = ({
   </div>
 );
 
+
 // Machine,
 // Please make website
 // All responsive like
@@ -111,20 +113,20 @@ const JobPostings = ({ match }) => {
 
   const { BASE_URL, githubApi, loading, error, resultLength, searchURL } = useContext(JobsContext);
   const [anotherPage, setAnotherPage] = useState(2);
-  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
-  const [scroll, setScroll] = useState(window.pageYOffset);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [resize, setResize] = useState(window.pageXOffset);
 
   function useWindowSize() {
     useEffect(() => {
-      function updateScrollHeight() {
-        setWindowHeight(window.innerHeight)
-        setScroll(window.pageYOffset)
+      function updateWidth() {
+        setWindowWidth(window.innerWidth)
+        setResize(window.pageXOffset)
       }
-      window.addEventListener("scroll", updateScrollHeight)
-      updateScrollHeight()
-      return () => window.removeEventListener("scroll", updateScrollHeight)
+      window.addEventListener("resize", updateWidth)
+      updateWidth()
+      return () => window.removeEventListener("resize", updateWidth)
     }, [])
-    return [scroll, windowHeight]
+    return [resize, windowWidth]
   }
 
   useEffect(() => {
@@ -145,6 +147,7 @@ const JobPostings = ({ match }) => {
 
   useWindowSize()
 
+  
   return (
     <div className="main-container">
       <SearchBar />
@@ -182,3 +185,29 @@ const JobPostings = ({ match }) => {
 };
 
 export default JobPostings;
+
+/*
+window width in the state
+then:
+
+window.addEventListener("resize", updateWidth)
+
+window.removeEventListener("resize", updateWidth)
+
+updateWidth() 
+
+render() {
+  const { width } = useState;
+  const isMobile = width <= 500;
+
+  if (isMobile) {
+    return (
+      <div>something</div>
+    );
+  } else {
+    return (
+      <div>something else</div>
+    );
+  }
+} 
+*/
