@@ -100,3 +100,13 @@
   }
 }
 
+@include responsive(500) {
+  .cards-container {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+  }
+}
+

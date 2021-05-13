@@ -145,9 +145,9 @@ const JobPostings = ({ match }) => {
     sessionStorage.setItem("search URL", endpoint)
   }
 
-  useWindowSize()
-
+  useWindowSize();
   
+
   return (
     <div className="main-container">
       <SearchBar />
@@ -194,7 +194,7 @@ window.addEventListener("resize", updateWidth)
 
 window.removeEventListener("resize", updateWidth)
 
-updateWidth() 
+updateWidth()
 
 render() {
   const { width } = useState;
@@ -209,5 +209,5 @@ render() {
       <div>something else</div>
     );
   }
-} 
+}
 */

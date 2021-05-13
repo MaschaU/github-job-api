@@ -1,3 +1,6 @@
+@import "../scss/variables";
+@import "../scss/mixins";
+
 .button {
   color: var(--boldText);
   background-color: var(--buttonBackground);
@@ -23,5 +26,16 @@
 @media only screen and (max-width: 768px) {
   .button {
     margin-right: 20px;
+  }
+}
+
+@include responsive(500) {
+  .button {
+    width: 41%;
+    line-height: 40px;
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -50px;
   }
 }

@@ -1,4 +1,5 @@
-
+@import "../scss/variables";
+@import "../scss/mixins";
 
 .search {
   width: 80%;
@@ -54,14 +55,51 @@
   }
 }
 
-//@include responsive(500) {
-//  .search {
-//      width: 100%;
-//  }
-//}
-
-@media only screen and (max-width: 768px) {
+@include responsive(500) {
   .search {
-    width: 90%
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+
+    input {
+      width: 100%;
+      padding: 15px;
+      border: transparent;
+      border-bottom-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    .filter-title {
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+    }
+
+    ::-webkit-input-placeholder {
+      text-align: center;
+      //text-indent: 10px;
+    }
+
+    .checkbox {
+      width: 100%;
+      background-color: var(--backgroundCards);
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+      padding-bottom: 50px;
+      justify-content: center;
+
+      &__text {
+        margin-top: 10px;
+        
+      }
+
+      &__area {
+        margin-top: 10px;
+        margin-left: 8px;
+        width: 15px;
+        height: 15px;
+      }
+    }
   }
+
+  
 }

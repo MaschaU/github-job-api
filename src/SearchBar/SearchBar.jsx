@@ -45,6 +45,7 @@ const SearchBar = () => {
         id="filter-title"
         name="filter-title"
         placeholder="Filter by title"
+        className="filter-title"
       ></input>
       <input
         type="text"
