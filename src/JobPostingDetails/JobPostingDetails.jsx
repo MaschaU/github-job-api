@@ -108,7 +108,7 @@ const JobPostingDetails = ({ match }) => {
                   <h1 className="details__title">{posting.title}</h1>
                   <h3 className="details__location">{posting.location}</h3>
                 </div>
-                <div>
+                <div className="details__container">
                   <Button className="body__button button" href={applyNow(posting.how_to_apply)} target="_blank" rel="noopener noreferrer">Apply Now</Button>
                 </div>
               </div>
