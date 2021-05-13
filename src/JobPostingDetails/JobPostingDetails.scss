@@ -168,8 +168,45 @@
 	}
 }
 
-@include responsive(600) {
+@include responsive(500) {
 	.details {
-		width: 90%;
+		&__header {
+			height: 250px;
+
+			&__inner {
+				width: 100%;
+				margin-top: 40px;
+				align-items: center;
+				align-content: center;
+				justify-content: space-evenly;
+			}
+			img {
+				height: 70px;
+				width: 70px;
+				position: absolute;
+				top: -30px;
+				left: 40%;
+				border-radius: 6px;
+			}
+
+			.button {
+				width: 33%;
+				margin-right: 125px;
+				margin-top: 20px;
+				font-size: 16px;
+			}
+			&__heading {
+				font-size: 20px;
+			}
+		}
+
+		&__type {
+			margin-left: 0;
+		}
+
+		&__title {
+			margin-top: 70px;
+			color: var(--boldText);
+		}
 	}
 }
